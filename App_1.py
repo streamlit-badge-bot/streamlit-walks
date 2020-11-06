@@ -6,7 +6,7 @@ st.title('Wainwrights: Which one should I climb?')
 st.markdown("Welcome to this in-depth introduction to [...].")
 
 # Cache data for future use
-@st.cache
+st.cache
 def get_data():
     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
     return pd.read_html(url, index_col=0)
