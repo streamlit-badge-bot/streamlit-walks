@@ -20,3 +20,4 @@ def get_data():
     return df
 
 df = get_data()
+st.dataframe(df)
