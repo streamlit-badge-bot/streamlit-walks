@@ -17,4 +17,4 @@ df = get_data()
 st.header("Customary quote")
 st.markdown("> I just love to go home, no matter where I am [...]")
 
-st.dataframe(df.head())
+st.dataframe(df)
