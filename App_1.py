@@ -12,7 +12,4 @@ def get_data():
     return pd.read_html(url, index_col=0)
 df = get_data()
 
-st.header("Customary quote")
-st.markdown("> I just love to go home, no matter where I am [...]")
-
 st.dataframe(df)
