@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np
-import lxml
+from lxml import etree as et
 
 # Title of app
 st.title('Wainwrights')
