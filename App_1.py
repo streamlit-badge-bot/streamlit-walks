@@ -6,8 +6,8 @@ import pandas as pd
 # Title of app
 st.title('Wainwrights')
 
-url = 'http://en.wikipedia.org/wiki/List_of_Wainwrights'
-html = pd.read_html(url, index_col=0)
+url = 'https://en.wikipedia.org/wiki/List_of_Wainwrights'
+html = pd.read_html(url, index_col = 0, encoding = 'lxml')
 # df = html[1]
 # st.write(df)
 
