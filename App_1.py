@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.title('Wainwrights: Which one should I climb?')
 
@@ -15,3 +17,10 @@ def get_data():
     return df
 df = get_data()
 st.dataframe(df)
+
+
+
+cm = sns.light_palette("green", as_cmap=True)
+
+s = df.style.background_gradient(cmap=cm)
+s
