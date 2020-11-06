@@ -17,6 +17,6 @@ def get_data():
     return df
 df = get_data()
 
-cm = sns.light_palette("mako", as_cmap=True)
+cm = sns.light_palette("green", as_cmap=True)
 s = df.style.background_gradient(cmap=cm)
 s
