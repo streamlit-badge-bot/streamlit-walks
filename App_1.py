@@ -20,5 +20,9 @@ def get_data():
 df = get_data()
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-s = df.style.background_gradient(cmap=cm)
-s
+# s = df.style.background_gradient(cmap=cm)
+# s
+
+streamlit.table(df.style.background_gradient(cmap=cm))
+
+streamlit.line_chart(data=None, width=0, height=0, use_container_width=True)
