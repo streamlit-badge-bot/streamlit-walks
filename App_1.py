@@ -24,6 +24,6 @@ cm = sns.light_palette("seagreen", as_cmap=True)
 s = df.style.background_gradient(cmap=cm)
 s
 
-st.table(df.style.background_gradient(cmap=cm))
+st.table(df.style.background_gradient(cmap=cm).head())
 
 # streamlit.line_chart(data=None, width=0, height=0, use_container_width=True)
