@@ -16,11 +16,7 @@ def get_data():
     df = html[1]
     return df
 df = get_data()
-st.dataframe(df)
 
-
-
-cm = sns.light_palette("green", as_cmap=True)
-
+cm = sns.light_palette("grey", as_cmap=True)
 s = df.style.background_gradient(cmap=cm)
 s
