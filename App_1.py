@@ -1,4 +1,3 @@
-pip3 install lxml
 import streamlit as st
 import pandas as pd 
 # import numpy as np
@@ -7,7 +6,7 @@ import pandas as pd
 # Title of app
 st.title('Wainwrights')
 
-url = 'https://en.wikipedia.org/wiki/List_of_Wainwrights'
+url = 'http://en.wikipedia.org/wiki/List_of_Wainwrights'
 html = pd.read_html(url, index_col=0)
 # df = html[1]
 # st.write(df)
