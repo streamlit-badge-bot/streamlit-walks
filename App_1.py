@@ -16,7 +16,7 @@ def get_data():
     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
     html = pd.read_html(url, index_col=0)
     df = html[1]
-    df = df.drop(columns = "Classification(§\xa0DoBIH codes)")
+    df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
     return df
 df = get_data()
 
