@@ -5,8 +5,6 @@ import numpy as np
 st.title('Wainwrights: Which one should I climb?')
 st.markdown("Welcome to this in-depth introduction to [...].")
 
-st.sidebar.header('User Input Features')
-
 # Cache data for future use
 @st.cache
 def get_data():
