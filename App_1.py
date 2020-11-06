@@ -12,7 +12,7 @@ st.sidebar.header('User Input Features')
 def get_data():
     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
     return pd.read_html(url, index_col=0)
-df = get_data()
+df = get_data(url)
 
 st.header("Customary quote")
 st.markdown("> I just love to go home, no matter where I am [...]")
