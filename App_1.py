@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd 
 import numpy as np
 
-st.title('Wainwrights')
+st.title('Wainwrights: Which one should I climb?')
+st.markdown("Welcome to this in-depth introduction to [...].")
+
+st.sidebar.header('User Input Features')
 
 # Cache data for future use
 @st.cache
@@ -11,9 +14,7 @@ def get_data():
     return pd.read_html(url, index_col=0)
 df = get_data()
 
-st.dataframe(df)
-
-st.title("Streamlit 101: An in-depth introduction")
-st.markdown("Welcome to this in-depth introduction to [...].")
 st.header("Customary quote")
 st.markdown("> I just love to go home, no matter where I am [...]")
+
+st.dataframe(df)
