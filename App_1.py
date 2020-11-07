@@ -39,7 +39,7 @@ st.pydeck_chart(pdk.Deck(
     
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
     
-    layers = pdk.Layer('TerrainLayer',
-                       data = df['Height (m)'],
+    layers = pdk.Layer('GridLayer',
+                       data = df,
                       ),
 ))
