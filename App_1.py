@@ -26,13 +26,13 @@ cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
 st.markdown("Lets compare the heights on an area chart.")
-# df_plot = df.set_index("name",drop=True,inplace=True)
-# st.area_chart(data=df, width=0, height=0, use_container_width=True)
-# st.area_chart(data=df['Height (m)'])
 
-
-df_1 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
-df_1
+# Convert OS Grid Reference to Longitude and Latitude
+os_grid = df['OS Grid Reference'].to_list()
+latitude = [grid2latlong(i).latitude for i in os_grid]
+longitude = [grid2latlong(i).longitude for i in os_grid]
+l = [[grid2latlong(i).latitude, grid2latlong(i).longitude] for i in os_grid]
+lat_lon = pd.DataFrame(l, columns = ['Latitude','Longitude'])
 
 st.pydeck_chart(pdk.Deck(
     map_style = 'mapbox://styles/mapbox/light-v9',
@@ -45,7 +45,7 @@ st.pydeck_chart(pdk.Deck(
     
     layers = [pdk.Layer(
         'HexagonLayer',
-        data = df_1,
+        data = lat_lon,
         get_position = '[lon, lat]',
         radius = 200,
         elevation_scale = 4,
@@ -55,13 +55,10 @@ st.pydeck_chart(pdk.Deck(
     ),
               pdk.Layer(
                   'ScatterplotLayer',
-                  data = df_1,
+                  data = lat_lon,
                   get_position='[lon, lat]',
                   get_color='[200, 30, 0, 160]',
                   get_radius=200,
               ),
              ],
 ))
-
-l = grid2latlong('NY215072')
-st.write(l.latitude, l.longitude)
