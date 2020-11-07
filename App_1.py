@@ -21,10 +21,7 @@ def get_data():
 df = get_data()
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-# df = df.style.background_gradient(cmap=cm)
-# st.dataframe(df)  # Same as st.write(df)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
-# st.table(df.style.background_gradient(cmap=cm))
-
-# streamlit.line_chart(data=None, width=0, height=0, use_container_width=True)
+st.markdown("Lets compare the heights on an area chart.")
+streamlit.area_chart(data=df['Height (m)'], width=0, height=0, use_container_width=True)
