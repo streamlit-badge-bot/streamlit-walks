@@ -33,6 +33,7 @@ latitude = [grid2latlong(i).latitude for i in os_grid]
 longitude = [grid2latlong(i).longitude for i in os_grid]
 l = [[grid2latlong(i).latitude, grid2latlong(i).longitude] for i in os_grid]
 lat_lon = pd.DataFrame(l, columns = ['Latitude','Longitude'])
+st.dataframe(lat_lon)
 
 st.pydeck_chart(pdk.Deck(
     map_style = 'mapbox://styles/mapbox/light-v9',
