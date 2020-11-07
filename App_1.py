@@ -35,7 +35,7 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
 
-df_json = pd.DataFrame.to_json(df, orient = 'columns')
+df_json = pd.DataFrame.to_json(df, orient = 'split')
 df_json
 
 st.pydeck_chart(pdk.Deck(
