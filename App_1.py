@@ -47,11 +47,11 @@ st.pydeck_chart(pdk.Deck(
     layers = [
         pdk.Layer(
             'HexagonLayer',
-            data = df['Height (m)'],
+            data = df,
             get_position = '[lon, lat]',
-            radius = 200,
-            elevation_scale = 5,
-            elevation_range = [0, 2000],
+            radius = 300,
+            elevation_scale = 4,
+            elevation_range = [min(df['Height (m)']), max(df['Height (m)'])],
             pickable = True,
             extruded = True,
         ),
@@ -61,7 +61,7 @@ st.pydeck_chart(pdk.Deck(
             data = lat_lon,
             get_position='[lon, lat]',
             get_color='[200, 30, 0, 160]',
-            get_radius = 200,
+            get_radius = 300,
         ),
     ],
 ))
