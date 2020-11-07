@@ -27,7 +27,38 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 st.markdown("Lets compare the heights on an area chart.")
 # df_plot = df.set_index("name",drop=True,inplace=True)
 # st.area_chart(data=df, width=0, height=0, use_container_width=True)
-st.area_chart(data=df['Height (m)'])
+# st.area_chart(data=df['Height (m)'])
 
-fig = ff.create_distplot(df)
-st.plotly_chart(fig)
+
+>> df = pd.DataFrame(
+...    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+...    columns=['lat', 'lon'])
+>>>
+>>> st.pydeck_chart(pdk.Deck(
+...     map_style='mapbox://styles/mapbox/light-v9',
+...     initial_view_state=pdk.ViewState(
+...         latitude=37.76,
+...         longitude=-122.4,
+...         zoom=11,
+...         pitch=50,
+...     ),
+...     layers=[
+...         pdk.Layer(
+...            'HexagonLayer',
+...            data=df,
+...            get_position='[lon, lat]',
+...            radius=200,
+...            elevation_scale=4,
+...            elevation_range=[0, 1000],
+...            pickable=True,
+...            extruded=True,
+...         ),
+...         pdk.Layer(
+...             'ScatterplotLayer',
+...             data=df,
+...             get_position='[lon, lat]',
+...             get_color='[200, 30, 0, 160]',
+...             get_radius=200,
+...         ),
+...     ],
+... ))
