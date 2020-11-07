@@ -35,8 +35,8 @@ df_1 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], colum
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
     initial_view_state=pdk.ViewState(
-        latitude=37.76,
-        longitude=-122.4,
+        latitude=54.27000,
+        longitude=-3.06000,
         zoom=11,
         pitch=50,
     ),
