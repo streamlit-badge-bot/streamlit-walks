@@ -44,6 +44,6 @@ st.pydeck_chart(pdk.Deck(
                        data = df,
                        get_position = '[Longitude, Latitude]',
                        radius = 500,
-                       get_elevation = d => d['Hieght (m)'],
+                       get_elevation = d['Hieght (m)'],
                       )
 ))
