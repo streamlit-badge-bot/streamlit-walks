@@ -34,6 +34,10 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # View on a map
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
+
+df_json = pd.DataFrame.to_json(df)
+df_json
+
 st.pydeck_chart(pdk.Deck(
     map_style = 'mapbox://styles/mapbox/light-v9',
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
