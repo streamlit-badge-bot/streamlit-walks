@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pydeck as pdk
+from OSGridConverter import grid2latlong
 
 st.title('Wainwrights: Which one should I climb?')
 st.markdown("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66). It is popular for walkers to use these routes when climbing a fell in the Lake District. However, with so much choice, how can we narrow down which one to walk up? The purpose of this app is to narrow down the Wainwrights to aid in your next fell climb in the Lake District.")
@@ -61,3 +62,6 @@ st.pydeck_chart(pdk.Deck(
               ),
              ],
 ))
+
+l = grid2latlong('TG 51408 13177')
+st.write/9(l.latitude, l.longitude))
