@@ -36,8 +36,11 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 st.markdown("Lets compare the heights on an area chart.")
 st.pydeck_chart(pdk.Deck(
     map_style = 'mapbox://styles/mapbox/light-v9',
-    
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
-    
-    layers = pdk.Layer('ColumnLayer', df, get_position = '[Longitude, Latitude]', radius = 500, get_elevation_value = 'Height (m)')
+    layers = pdk.Layer('ColumnLayer',
+                       data = df,
+                       get_position = '[Longitude, Latitude]',
+                       radius = 500,
+#                        get_elevation_value = 'Height (m)'
+                      )
 ))
