@@ -39,5 +39,5 @@ st.pydeck_chart(pdk.Deck(
     
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
     
-    layers = pdk.Layer('HexagonLayer', df, get_position = '[Longitude, Latitude]', radius = 500)
+    layers = pdk.Layer('ColumnLayer', df, get_position = '[Longitude, Latitude]', radius = 500, get_elevation_value = 'Height (m)')
 ))
