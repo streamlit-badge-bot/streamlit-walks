@@ -24,4 +24,4 @@ cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
 st.markdown("Lets compare the heights on an area chart.")
-st.area_chart(data=df['Height (m)'], width=0, height=0, use_container_width=True)
+st.area_chart(data=df, width=0, height=0, use_container_width=True)
