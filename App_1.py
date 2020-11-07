@@ -41,6 +41,6 @@ st.pydeck_chart(pdk.Deck(
     
     layers = pdk.Layer('GridLayer',
                        data = df,
-                       get_position = '[Latitude, Longitude]'
+                       get_position = '[Latitude, Longitude]',
                       ),
 ))
