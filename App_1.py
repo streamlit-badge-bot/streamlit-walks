@@ -32,7 +32,7 @@ os_grid = df['OS Grid Reference'].to_list()
 latitude = [grid2latlong(i).latitude for i in os_grid]
 longitude = [grid2latlong(i).longitude for i in os_grid]
 l = [[grid2latlong(i).latitude, grid2latlong(i).longitude] for i in os_grid]
-lat_lon = pd.DataFrame(l, columns = ['Latitude','Longitude'])
+lat_lon = pd.DataFrame(l, columns = ['lat','lon'])
 st.dataframe(lat_lon)
 
 st.pydeck_chart(pdk.Deck(
@@ -44,22 +44,24 @@ st.pydeck_chart(pdk.Deck(
         zoom = 9,
     ),
     
-    layers = [pdk.Layer(
-        'HexagonLayer',
-        data = lat_lon,
-        get_position = '[lon, lat]',
-        radius = 200,
-        elevation_scale = 4,
-        elevation_range=[0, 1000],
-        pickable=True,
-        extruded=True,
-    ),
-              pdk.Layer(
-                  'ScatterplotLayer',
-                  data = lat_lon,
-                  get_position='[lon, lat]',
-                  get_color='[200, 30, 0, 160]',
-                  get_radius=200,
-              ),
-             ],
+    layers = [
+        pdk.Layer(
+            'HexagonLayer',
+            data = lat_lon,
+            get_position = '[lon, lat]',
+            radius = 200,
+            elevation_scale = 4,
+            elevation_range=[0, 1000],
+            pickable=True,
+            extruded=True,
+        ),
+        
+        pdk.Layer(
+            'ScatterplotLayer',
+            data = lat_lon,
+            get_position='[lon, lat]',
+            get_color='[200, 30, 0, 160]',g
+            get_radius=200,
+        ),
+    ],
 ))
