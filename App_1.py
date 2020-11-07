@@ -29,5 +29,5 @@ st.markdown("Lets compare the heights on an area chart.")
 # st.area_chart(data=df, width=0, height=0, use_container_width=True)
 st.area_chart(data=df['Height (m)'])
 
-fig = ff.create_distplot(df, group_labels, bin_size=[.1, .25, .5])
-st.plotly_chart(fig, use_container_width=True)
+fig = ff.create_distplot(df)
+st.plotly_chart(fig)
