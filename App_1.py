@@ -21,8 +21,9 @@ def get_data():
 df = get_data()
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-df = df.style.background_gradient(cmap=cm)
-st.dataframe(df)  # Same as st.write(df)
+# df = df.style.background_gradient(cmap=cm)
+# st.dataframe(df)  # Same as st.write(df)
+st.dataframe(df.style.background_gradient(cmap=cm))
 
 # st.table(df.style.background_gradient(cmap=cm))
 
