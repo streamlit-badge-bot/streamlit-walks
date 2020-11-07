@@ -24,9 +24,9 @@ st.markdown("All the Wainwrights have been listed below.")
 url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 html = pd.read_html(url, index_col=1)
 df = html[1]
-df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
 df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
 df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+df = df.drop(columns = ['Height Rank', 'Birkett', 'Height (ft)', 'Prom. (m)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
@@ -40,12 +40,12 @@ st.pydeck_chart(pdk.Deck(
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
     
     layers = pdk.Layer('HexagonLayer', data = df,
-                       colorDomain = [0, len(df)],
+#                        colorDomain = [0, len(df)],
                        get_position = '[Longitude, Latitude]',
                        auto_highlight = True,
                        elevation_scale = 25,
                        pickable = True,
-                       elevation_range = [0, 3000],
+                       elevation_range = [min(df['Height (m)']), max(df['Height (m)'])],
                        extruded = True,
                        coverage = 1),
 ))
