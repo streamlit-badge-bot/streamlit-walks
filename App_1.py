@@ -14,7 +14,7 @@ st.markdown("All the Wainwrights have been listed below.")
 @st.cache
 def get_data():
     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
-    html = pd.read_html(url, index_col=0)
+    html = pd.read_html(url, index_col=1)
     df = html[1]
     df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
     return df
@@ -24,4 +24,5 @@ cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
 st.markdown("Lets compare the heights on an area chart.")
+# df_plot = df.set_index("name",drop=True,inplace=True)
 st.area_chart(data=df, width=0, height=0, use_container_width=True)
