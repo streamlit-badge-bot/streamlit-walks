@@ -41,9 +41,9 @@ st.pydeck_chart(pdk.Deck(
     map_style = 'mapbox://styles/mapbox/light-v9',
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
     layers = pdk.Layer('ColumnLayer',
-                       data = df,
+                       data = df_json,
                        get_position = '[Longitude, Latitude]',
                        radius = 500,
-                       get_elevation = df_json['Height (m)'],
+                       get_elevation = 'Height (m)',
                       )
 ))
