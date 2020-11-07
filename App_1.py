@@ -50,10 +50,10 @@ st.pydeck_chart(pdk.Deck(
             data = lat_lon,
             get_position = '[lon, lat]',
             radius = 400,
-            elevation_scale = 50,
-            elevation_range=[0, 1000],
-            pickable=True,
-            extruded=True,
+            elevation_scale = 10,
+            elevation_range = [0, 1000],
+            pickable = True,
+            extruded = True,
         ),
         
         pdk.Layer(
@@ -61,7 +61,7 @@ st.pydeck_chart(pdk.Deck(
             data = lat_lon,
             get_position='[lon, lat]',
             get_color='[200, 30, 0, 160]',
-            get_radius=200,
+            get_radius = 400,
         ),
     ],
 ))
