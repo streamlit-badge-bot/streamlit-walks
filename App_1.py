@@ -16,7 +16,7 @@ def get_data():
     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
     html = pd.read_html(url, index_col=1)
     df = html[1]
-    df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
+    df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
     return df
 df = get_data()
 
@@ -25,4 +25,5 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 
 st.markdown("Lets compare the heights on an area chart.")
 # df_plot = df.set_index("name",drop=True,inplace=True)
-st.area_chart(data=df, width=0, height=0, use_container_width=True)
+# st.area_chart(data=df, width=0, height=0, use_container_width=True)
+st.area_chart(data=df['Height (m)'])
