@@ -40,7 +40,7 @@ st.pydeck_chart(pdk.Deck(
     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
     
     layers = pdk.Layer('HexagonLayer', data = df,
-#                        colorDomain = [min(df['Height (m)']), max(df['Height (m)'])],
+                       colorDomain = [0, len(df)],
                        get_position = '[Longitude, Latitude]',
                        auto_highlight = True,
                        elevation_scale = 25,
