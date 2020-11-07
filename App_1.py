@@ -41,6 +41,8 @@ st.pydeck_chart(pdk.Deck(
     layers = pdk.Layer('ColumnLayer',
                        data = df,
                        get_position = '[Longitude, Latitude]',
+                       pickable = True,
+                       on_hover = True,
                        radius = 500,
                        get_elevation = 1000
 #                        get_elevation = '{,Height (m)}',
