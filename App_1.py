@@ -13,27 +13,29 @@ st.header("Table of all the Wainwrights. The darker the shade of green, the tall
 st.markdown("All the Wainwrights have been listed below.")
 
 # Streamlit will perform internal magic so that the data will be downloaded only once and cached for future use
-@st.cache
-def get_data():
-    url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
-    html = pd.read_html(url, index_col=1)
-    df = html[1]
-    df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
-    return df
-df = get_data()
+# @st.cache
+# def get_data():
+#     url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
+#     html = pd.read_html(url, index_col=1)
+#     df = html[1]
+#     df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
+#     return df
+# df = get_data()
+
+url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
+html = pd.read_html(url, index_col=1)
+df = html[1]
+df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Prom. (ft)', 'Classification(§\xa0DoBIH codes)'])
+df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
 
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
 st.markdown("Lets compare the heights on an area chart.")
-
-# Convert OS Grid Reference to Longitude and Latitude
-df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
-
 st.pydeck_chart(pdk.Deck(
     
-#     map_style = 'mapbox://styles/mapbox/light-v9',
+    map_style = 'mapbox://styles/mapbox/light-v9',
     
     initial_view_state = pdk.ViewState(
         latitude = 54.45,
@@ -46,9 +48,9 @@ st.pydeck_chart(pdk.Deck(
             'HexagonLayer',
             data = df,
             get_position = '[Longitude, Latitude]',
-            radius = 300,
+            radius = 200,
             elevation_scale = 4,
-            elevation_range = [min(df['Height (m)']), max(df['Height (m)'])],
+            elevation_range = [0, 100],
             pickable = True,
             extruded = True,
         ),
@@ -58,7 +60,7 @@ st.pydeck_chart(pdk.Deck(
             data = df,
             get_position='[Longitude, Latitude]',
             get_color='[200, 30, 0, 160]',
-            get_radius = 300,
+            get_radius = 200,
         ),
     ],
 ))
