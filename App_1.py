@@ -34,7 +34,9 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # View on a map
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
-st.pydeck_chart(pdk.Deck(
+st.pydeck_chart(
+    
+    pdk.Deck(
     
     map_style = 'mapbox://styles/mapbox/light-v9',
     
@@ -56,4 +58,5 @@ st.pydeck_chart(pdk.Deck(
         extruded = True,
         coverage = 1
     ),
-))
+                       )
+                       )
