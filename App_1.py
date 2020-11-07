@@ -45,7 +45,8 @@ st.pydeck_chart(pdk.Deck(
                        auto_highlight = True,
                        elevation_scale = 25,
                        pickable = True,
-                       elevation_range = [min(df['Height (m)']), max(df['Height (m)'])],
+                       elevation_range = [0, 1000]
+#                        elevation_range = [min(df['Height (m)']), max(df['Height (m)'])],
                        extruded = True,
                        coverage = 1),
 ))
