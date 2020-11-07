@@ -64,4 +64,4 @@ st.pydeck_chart(pdk.Deck(
 ))
 
 l = grid2latlong('TG 51408 13177')
-st.write/9(l.latitude, l.longitude))
+st.write(l.latitude, l.longitude)
