@@ -26,7 +26,7 @@ html = pd.read_html(url, index_col=1)
 df = html[1]
 df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
 df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
-df = df.drop(columns = ['Height Rank', 'Birkett', 'Height (ft)', 'Prom. (m)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
+# df = df.drop(columns = ['Height Rank', 'Birkett', 'Height (ft)', 'Prom. (m)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
