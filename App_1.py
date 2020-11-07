@@ -47,6 +47,7 @@ st.pydeck_chart(pdk.Deck(
     layers = pdk.Layer(
         'HexagonLayer',
         data = df,
+        colorDomain = [min(df['Height (m)'], maxmin(df['Height (m)'])
         get_position = '[Longitude, Latitude]',
         auto_highlight = True,
         elevation_scale = 25,
