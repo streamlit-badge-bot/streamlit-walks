@@ -54,7 +54,7 @@ column_layer = pdk.Layer(
     "ColumnLayer",
     data = df,
     get_position = ["Longitude", "Latitude"],
-#     get_elevation = "Height (m)",
+    get_elevation = "Height (m)",
     elevation_scale = 100,
 #     radius = 50,
 #     get_fill_color = ["Height (m) * 10", "Height (m)", "Height (m) * 10", 140],
