@@ -80,3 +80,4 @@ r = pdk.Deck(
 )
 
 r.to_html("column_layer.html", notebook_display = False)
+r
