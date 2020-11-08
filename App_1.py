@@ -43,14 +43,13 @@ df = load_data()
 st.markdown("Lets compare the heights on an area chart.")
 
 midpoint = (np.average(df["Latitude"]), np.average(df["Longitude"]))
-midpoint
 
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state={
         "latitude": midpoint[0],
         "longitude": midpoint[1],
-        "zoom": 11,
+        "zoom": 19,
         "pitch": 50,
 
     },
@@ -58,12 +57,12 @@ st.write(pdk.Deck(
         pdk.Layer(
             "HexagonLayer",
             data = df[['Height (m)', 'Latitude', 'Longitude']],
-            get_position=["Longitude", "Latitude"],
+            get_position = ["Longitude", "Latitude"],
             auto_highlight = True,
             radius = 100,
             extruded = True,
             pickable = True,
-            elevation_scale = 4,
+            elevation_scale = 7,
             elevation_range = [0, 1000],
         ),
     ],
