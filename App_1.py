@@ -79,5 +79,5 @@ r = pdk.Deck(
     map_style = "mapbox://styles/mapbox/satellite-v9",
 )
 
-r.to_html("column_layer.html", notebook_display = False)
+# r.to_html("column_layer.html", notebook_display = False)
 r
