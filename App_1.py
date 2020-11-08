@@ -68,17 +68,4 @@ st.write(pdk.Deck(
     ],
 ))
 
-# st.pydeck_chart(pdk.Deck(
-#     map_style = 'mapbox://styles/mapbox/light-v9',
-#     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
-#     layers = pdk.Layer('ColumnLayer',
-#                        data = df,
-#                        get_position = '[Longitude, Latitude]',
-#                        radius = 500,
-# #                        get_elevation = "Height (m)",
-#                        elevation_scale = 10,
-# #                        get_fill_color= ["mrt_distance * 10", "mrt_distance", "mrt_distance * 10", 140],
-#                        pickable = True,
-#                        auto_highlight = True,
-#                       )
-# ))
+st.map(df)
