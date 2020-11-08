@@ -32,55 +32,14 @@ def load_data():
     df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
     return df
 
-cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(load_data().style.background_gradient(cmap=cm))
-
 df = load_data()
+
+cm = sns.light_palette("seagreen", as_cmap=True)
+st.dataframe(df.style.background_gradient(cmap=cm))
 
 # --------------------------------
 # View on a map
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
-
-midpoint = (np.average(df["Latitude"]), np.average(df["Longitude"]))
-
-st.write(pdk.Deck(
-    map_style="mapbox://styles/mapbox/light-v9",
-    initial_view_state={
-        "latitude": midpoint[0],
-        "longitude": midpoint[1],
-        "zoom": 9,
-        "pitch": 50,
-
-    },
-    layers=[
-        pdk.Layer(
-            "HexagonLayer",
-            data = df[['Height (m)', 'Latitude', 'Longitude']],
-            get_position = ["Longitude", "Latitude"],
-            auto_highlight = True,
-            radius = 500,
-            extruded = True,
-            pickable = True,
-            elevation_scale = 3,
-            elevation_range = [0, 1000],
-        ),
-    ],
-))
-
-# st.pydeck_chart(pdk.Deck(
-#     map_style = 'mapbox://styles/mapbox/light-v9',
-#     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
-#     layers = pdk.Layer('ColumnLayer',
-#                        data = df,
-#                        get_position = '[Longitude, Latitude]',
-#                        radius = 500,
-# #                        get_elevation = "Height (m)",
-#                        elevation_scale = 10,
-# #                        get_fill_color= ["mrt_distance * 10", "mrt_distance", "mrt_distance * 10", 140],
-#                        pickable = True,
-#                        auto_highlight = True,
-#                       )
-# ))
 
 st.map(df)
