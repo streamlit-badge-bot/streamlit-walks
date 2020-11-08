@@ -35,6 +35,8 @@ def load_data():
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(load_data().style.background_gradient(cmap=cm))
 
+df = load_data()
+
 # --------------------------------
 # View on a map
 # --------------------------------
