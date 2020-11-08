@@ -62,7 +62,7 @@ st.write(pdk.Deck(
             radius = 100,
             extruded = True,
             pickable = True,
-            elevation_scale = 7,
+            elevation_scale = 3,
             elevation_range = [0, 1000],
         ),
     ],
