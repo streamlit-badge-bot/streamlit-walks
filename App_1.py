@@ -27,8 +27,8 @@ url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 def load_data():
     html = pd.read_html(url, index_col=1)
     df = html[1]
-    df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-    df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+    df['latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+    df['longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
     df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
     return df
 
