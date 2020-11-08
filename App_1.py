@@ -42,5 +42,10 @@ st.pydeck_chart(pdk.Deck(
                        data = df,
                        get_position = '[Longitude, Latitude]',
                        radius = 500,
+                       get_elevation = "Height (m)",
+                       elevation_scale=100,
+#                        get_fill_color= ["mrt_distance * 10", "mrt_distance", "mrt_distance * 10", 140],
+                       pickable=True,
+                       auto_highlight=True,
                       )
 ))
