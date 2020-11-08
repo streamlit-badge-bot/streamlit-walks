@@ -22,13 +22,19 @@ st.header("Table of all the Wainwrights. The darker the shade of green, the tall
 st.markdown("All the Wainwrights have been listed below.")
 
 url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
-html = pd.read_html(url, index_col=1)
-df = html[1]
-df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
-df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
+
+@st.cache
+def load_data():
+    data = pd.read_csv(DATA_URL, nrows=nrows, parse_dates=[["CRASH DATE", "CRASH TIME"]])
+    html = pd.read_html(url, index_col=1)
+    df = html[1]
+    df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+    df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+    df = df.drop(columns = ['Height Rank', 'Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
+    return df
+
 cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(df.style.background_gradient(cmap=cm))
+st.dataframe(load_data().style.background_gradient(cmap=cm))
 
 # --------------------------------
 # View on a map
