@@ -35,22 +35,22 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
 
-st.pydeck_chart(pdk.Deck(
-    map_style = 'mapbox://styles/mapbox/light-v9',
-    initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
-    layers = pdk.Layer('ColumnLayer',
-                       data = df,
-                       get_position = '[Longitude, Latitude]',
-                       radius = 500,
-                       get_elevation = "Height (m)",
-                       elevation_scale=100,
-#                        get_fill_color= ["mrt_distance * 10", "mrt_distance", "mrt_distance * 10", 140],
-                       pickable=True,
-                       auto_highlight=True,
-                      )
-))
+# st.pydeck_chart(pdk.Deck(
+#     map_style = 'mapbox://styles/mapbox/light-v9',
+#     initial_view_state = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9),
+#     layers = pdk.Layer('ColumnLayer',
+#                        data = df,
+#                        get_position = '[Longitude, Latitude]',
+#                        radius = 500,
+#                        get_elevation = "Height (m)",
+#                        elevation_scale=100,
+# #                        get_fill_color= ["mrt_distance * 10", "mrt_distance", "mrt_distance * 10", 140],
+#                        pickable=True,
+#                        auto_highlight=True,
+#                       )
+# ))
 
-column_layer = pydeck.Layer(
+column_layer = pdk.Layer(
     "ColumnLayer",
     data = df,
     get_position = ["Longitude", "Latitude"],
@@ -62,7 +62,7 @@ column_layer = pydeck.Layer(
     auto_highlight = True,
 )
 
-view = pydeck.data_utils.compute_view(df[["Longitude", "Latitude"]])
+view = pdk.data_utils.compute_view(df[["Longitude", "Latitude"]])
 view.pitch = 75
 view.bearing = 60
 
@@ -72,7 +72,7 @@ tooltip = {
 }
 tooltip
 
-r = pydeck.Deck(
+r = pdk.Deck(
     column_layer,
     initial_view_state = view,
     tooltip = tooltip,
