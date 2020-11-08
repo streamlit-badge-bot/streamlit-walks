@@ -25,7 +25,6 @@ url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 
 @st.cache
 def load_data():
-    data = pd.read_csv(DATA_URL, nrows=nrows, parse_dates=[["CRASH DATE", "CRASH TIME"]])
     html = pd.read_html(url, index_col=1)
     df = html[1]
     df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
