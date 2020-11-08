@@ -48,8 +48,8 @@ midpoint
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state={
-        "Latitude": midpoint[0],
-        "Longitude": midpoint[1],
+        "latitude": midpoint[0],
+        "longitude": midpoint[1],
         "zoom": 11,
         "pitch": 50,
 
