@@ -49,3 +49,9 @@ st.pydeck_chart(pdk.Deck(
                        auto_highlight=True,
                       )
 ))
+
+tooltip = {
+    "html": "<b>{Height (m)}</b> meters away from an MRT station, costs <b>{Section}</b> NTD/sqm",
+    "style": {"background": "grey", "color": "white", "font-family": '"Helvetica Neue", Arial', "z-index": "10000"},
+}
+tooltip
