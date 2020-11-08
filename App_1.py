@@ -66,18 +66,11 @@ view = pdk.data_utils.compute_view(df[["Longitude", "Latitude"]])
 view.pitch = 75
 view.bearing = 60
 
-tooltip = {
-    "html": "<b>{Height (m)}</b> meters away from an MRT station, costs <b>{Section}</b> NTD/sqm",
-    "style": {"background": "grey", "color": "white", "font-family": '"Helvetica Neue", Arial', "z-index": "10000"},
-}
-tooltip
-
 r = pdk.Deck(
     column_layer,
     initial_view_state = view,
-    tooltip = tooltip,
     map_style = "mapbox://styles/mapbox/satellite-v9",
 )
 
 # r.to_html("column_layer.html", notebook_display = False)
-r
+st.pydeck_chart(r)
