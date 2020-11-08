@@ -43,6 +43,8 @@ df = load_data()
 st.markdown("Lets compare the heights on an area chart.")
 
 midpoint = (np.average(df["Latitude"]), np.average(df["Longitude"]))
+midpoint
+
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state={
