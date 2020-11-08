@@ -50,8 +50,33 @@ st.pydeck_chart(pdk.Deck(
                       )
 ))
 
+column_layer = pydeck.Layer(
+    "ColumnLayer",
+    data = df,
+    get_position = ["Longitude", "Latitude"],
+    get_elevation = "Height (m)",
+    elevation_scale = 100,
+    radius = 50,
+    get_fill_color = ["Height (m) * 10", "Height (m)", "Height (m) * 10", 140],
+    pickable = True,
+    auto_highlight = True,
+)
+
+view = pydeck.data_utils.compute_view(df[["Longitude", "Latitude"]])
+view.pitch = 75
+view.bearing = 60
+
 tooltip = {
     "html": "<b>{Height (m)}</b> meters away from an MRT station, costs <b>{Section}</b> NTD/sqm",
     "style": {"background": "grey", "color": "white", "font-family": '"Helvetica Neue", Arial', "z-index": "10000"},
 }
 tooltip
+
+r = pydeck.Deck(
+    column_layer,
+    initial_view_state = view,
+    tooltip = tooltip,
+    map_style = "mapbox://styles/mapbox/satellite-v9",
+)
+
+r.to_html("column_layer.html", notebook_display = False)
