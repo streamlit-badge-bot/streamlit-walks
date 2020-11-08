@@ -82,3 +82,5 @@ st.write(pdk.Deck(
 #                        auto_highlight = True,
 #                       )
 # ))
+
+st.map(df)
