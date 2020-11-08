@@ -56,15 +56,13 @@ column_layer = pdk.Layer(
     get_position = ["Longitude", "Latitude"],
 #     get_elevation = "Height (m)",
     elevation_scale = 100,
-    radius = 50,
-    get_fill_color = ["Height (m) * 10", "Height (m)", "Height (m) * 10", 140],
-    pickable = True,
-    auto_highlight = True,
+#     radius = 50,
+#     get_fill_color = ["Height (m) * 10", "Height (m)", "Height (m) * 10", 140],
+#     pickable = True,
+#     auto_highlight = True,
 )
 
-view = pdk.data_utils.compute_view(df[["Longitude", "Latitude"]])
-view.pitch = 75
-view.bearing = 60
+view = pdk.ViewState(latitude = 54.45, longitude = -3.1, zoom = 9)
 
 r = pdk.Deck(
     column_layer,
