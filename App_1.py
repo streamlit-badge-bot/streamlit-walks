@@ -72,6 +72,8 @@ df = load_data()
 section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
+np.min(df['Height (m)'])
+
 # Slider
 values = st.slider('Select a height (m)', np.min(df['Height (m)']), np.max(df['Height (m)']), (25.0, 75.0))
 st.write('Values:', values)
