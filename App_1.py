@@ -19,7 +19,7 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 st.title("App to select your next Wainwright")
 st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
-st.write("Here's our first attempt at using data to create a table:")
+st.write("Here's a table of the Wainwrights, ordered by height:")
 
 # --------------------------------
 # Sidebar
@@ -51,7 +51,8 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # --------------------------------
 # View on a map
 # --------------------------------
-st.title("Map")
+st.title("Here are the Wainwrights plotted on a map:")
+st.write("The size of the dot represents the height of the Wainwright (the larger the taller).")
 
 fig = px.scatter_mapbox(df,
                         lat = "Latitude",
