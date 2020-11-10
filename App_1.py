@@ -45,10 +45,6 @@ st.sidebar.title("Filter")
 # Height filter
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
 section = df['Section'].unique()
-section[0]
-section[1]
-# blank_selection = section[0] + "|" + section[1]
-section = np.concatenate((blank_selection, section))
 filter_section = st.sidebar.selectbox("Section", (section))
 
 # --------------------------------
