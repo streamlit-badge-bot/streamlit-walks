@@ -27,8 +27,8 @@ url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 def load_data():
     html = pd.read_html(url)
     df = html[1]
-    df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-    df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+    df['lat'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+    df['lon'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
     df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
     return df
 
@@ -57,7 +57,7 @@ df_1 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], colum
 df_1
 
 
-midpoint = (np.average(lat_lon['Latitude']), np.average(lat_lon['Longitude']))
+midpoint = (np.average(lat_lon['lat']), np.average(lat_lon['lon']))
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
@@ -71,7 +71,7 @@ st.pydeck_chart(pdk.Deck(
         pdk.Layer(
             'HexagonLayer',
             data = lat_lon,
-            get_position = '[Longitude, Latitude]',
+            get_position = '[lon, lat]',
             radius = 200,
             elevation_scale = 40,
             elevation_range = [0, 214],
