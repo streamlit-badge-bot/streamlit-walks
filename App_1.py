@@ -46,11 +46,23 @@ section = df['Section'].unique()
 section 
 filter_section = st.sidebar.selectbox("Section", (section))
 
-# df_1 = df[df['Section']=='34B: LD C&W']
-# df_1
-
 for i in section:
     if filter_section == i:
+        fig = px.scatter_mapbox(df[df['Section']==i],
+                        lat = "Latitude",
+                        lon = "Longitude",
+                        hover_name = "Name",
+                        hover_data = ["Height (m)"],
+                        zoom = 9,
+                        height = 300,
+                        color = 'Height (m)',
+                        size = 'Height (m)',
+                        color_continuous_scale = px.colors.cyclical.IceFire,
+                        size_max = 9)
+        fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
+        fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
+        st.plotly_chart(fig, use_container_width = True)
+        
         st.dataframe(df[df['Section']==i])
 
     
