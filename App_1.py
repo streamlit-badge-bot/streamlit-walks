@@ -73,8 +73,8 @@ section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
 # Slider
-values = st.slider('Select a height (m)', 270, 970, (270, 970))
-st.write('Values:', values)
+heights = st.slider('Select a height (m)', 270, 970, (270, 970))
+# st.write('Values:', values)
 
 # --------------------------------
 # View on a map
