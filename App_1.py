@@ -61,8 +61,8 @@ fig = px.scatter_mapbox(df,
                         height = 300,
                         color = 'Height (m)',
                         size = 'Height (m)',
-                        color_continuous_scale = px.colors.cyclical.DarkMint,
-                        size_max = 15)
+                        color_continuous_scale = px.colors.cyclical.IceFire,
+                        size_max = 10)
 fig.update_layout(mapbox_style = "open-street-map")
 fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
