@@ -73,7 +73,7 @@ section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
 minim = np.min(df['Height (m)'])
-minim
+minim.type()
 
 maxim = np.max(df['Height (m)'])
 maxim
