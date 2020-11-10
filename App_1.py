@@ -65,7 +65,7 @@ fig = px.scatter_mapbox(df,
                         zoom=11,
                         height=300)
 fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+# fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 # st.plotly_chart(fig, use_container_width=True)
 st.plotly_chart(fig)
