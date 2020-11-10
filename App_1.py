@@ -56,35 +56,13 @@ st.markdown("Lets compare the heights on an area chart.")
 
 midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
 
-st.pydeck_chart(pdk.Deck(
-    map_style='mapbox://styles/mapbox/light-v9',
-    initial_view_state=pdk.ViewState(
-        latitude = midpoint[0],
-        longitude = midpoint[1],
-        zoom = 11,
-        pitch = 50,
-    ),
-    layers=
-    pdk.Layer(
-        'HexagonLayer',
-        data = df,
-        get_position = '[Longitude, Latitude]',
-        radius = 200,
-        elevation_scale = 40,
-        elevation_range = [0, 214],
-        pickable = True,
-        extruded = True,
-        get_color = '[200, 30, 0, 160]',
-    ),
-))
-
 fig = px.scatter_mapbox(df,
                         lat="Latitude",
                         lon="Longitude",
                         hover_name="Name",
                         hover_data=["Height (m)"],
                         color_discrete_sequence=["fuchsia"],
-                        zoom=3,
+                        zoom=11,
                         height=300)
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
