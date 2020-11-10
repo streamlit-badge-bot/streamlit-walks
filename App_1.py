@@ -48,10 +48,11 @@ filter_section = st.sidebar.selectbox("Section", (section))
 # df_1 = df[df['Section']=='34B: LD C&W']
 # df_1
 
-if filter_section == '34B: LD C&W':
-    st.dataframe(df[df['Section']==filter_section])
+for area in section:
+    if filter_section == section[area]:
+        st.dataframe(df[df['Section']==filter_section])
 
-
+    
 # --------------------------------
 # Table
 # --------------------------------
