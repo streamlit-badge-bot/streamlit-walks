@@ -47,7 +47,7 @@ lat_lon = pd.DataFrame(df)
 lat_lon = lat_lon.drop(columns = ['Name', 'Section', 'Height (m)'])
 lat_lon
 
-midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
+midpoint = (np.average(lat_lon['Latitude']), np.average(lat_lon['Longitude']))
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
@@ -60,7 +60,7 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
             'HexagonLayer',
-            data=df,
+            data=lat_lon,
             get_position='[Longitude, Latitude]',
             radius=200,
             elevation_scale=4,
@@ -70,7 +70,7 @@ st.pydeck_chart(pdk.Deck(
         ),
         pdk.Layer(
             'ScatterplotLayer',
-            data=df,
+            data=lat_lon,
             get_position='[Longitude, Latitude]',
             get_color='[200, 30, 0, 160]',
             get_radius=200,
