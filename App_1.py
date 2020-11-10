@@ -18,8 +18,7 @@ st.markdown("Wainwrights are the 214 English peaks mapped out in Alfred Wainwrig
 # --------------------------------
 # Import Data
 # --------------------------------
-st.header("Table of all the Wainwrights. The darker the shade of green, the taller the fell is.")
-st.markdown("All the Wainwrights have been listed below.")
+st.header("The darker the shade of green, the taller the fell is.")
 
 url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 
@@ -27,8 +26,8 @@ url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 def load_data():
     html = pd.read_html(url, index_col=0)
     df = html[1]
-    df['latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-    df['longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+    df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+    df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
     df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
     return df
 
