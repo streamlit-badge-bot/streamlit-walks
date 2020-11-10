@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pydeck as pdk
 from OSGridConverter import grid2latlong
+import plotly.express as px
 
 st.markdown('<style>h1{color: black; text-align:center;}</style>', unsafe_allow_html=True)
 st.markdown('<style>h2{color: green; text-align:center;}</style>', unsafe_allow_html=True)
@@ -29,8 +30,8 @@ url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 def load_data():
     html = pd.read_html(url, index_col=[0])
     df = html[1]
-    df['lat'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
-    df['lon'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
+    df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
+    df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
     df = df.drop(columns = ['Birkett', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\xa0DoBIH codes)'])
     return df
 
