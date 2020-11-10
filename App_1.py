@@ -12,11 +12,8 @@ from OSGridConverter import grid2latlong
 # --------------------------------
 # Title
 # --------------------------------
-st.markdown("<h1 style='text-align: center; color: black;'>Wainwrights</h1>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center; color: black;'>Dataset of Vehicle Collisions</h1>", unsafe_allow_html=True)
-st.markdown('<style>h2{color: blue; text-align:center;}</style>', unsafe_allow_html=True)
-
-# st.title('Wainwrights: Which one should I climb?')
+st.markdown("<h1 style='text-align: center; color: black;'>Wainwrights: Which one should I climb?</h1>", unsafe_allow_html=True)
+st.markdown('<style>h2{color: green; text-align:center;}</style>', unsafe_allow_html=True)
 st.markdown("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66). It is popular for walkers to use these routes when climbing a fell in the Lake District. However, with so much choice, how can we narrow down which one to walk up? The purpose of this app is to narrow down the Wainwrights to aid in your next fell climb in the Lake District.")
 
 # --------------------------------
@@ -97,7 +94,7 @@ import pydeck as pdk
 import plotly.express as px
 
 DATA_URL = (
-    "C:\\Users\\gamboa\\PycharmProjects\\jgamboaData\\dataset\\Motor_Vehicle_Collisions_-_Crashes.csv"
+    "Downloads\\Motor_Vehicle_Collisions_-_Crashes.csv"
 )
 
 st.markdown("<h1 style='text-align: center; color: black;'>Geographic Data</h1>", unsafe_allow_html=True)
