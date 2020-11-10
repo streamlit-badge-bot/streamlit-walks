@@ -18,8 +18,8 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # Title
 # --------------------------------
 # st.title("App to select your next Wainwright")
-st.subheader("The Wainwrights are 214 Lake District peaks.")
-st.title("(not a Lancashire beer)")
+st.header("The Wainwrights are 214 Lake District peaks.")
+st.subheader("(not a Lancashire beer)")
 
 # --------------------------------
 # Import Data
