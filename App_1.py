@@ -42,15 +42,15 @@ df = load_data()
 # --------------------------------
 st.sidebar.header("Filter")
 
-section = df['Section'].unique().append('All')
+section = df['Section'].unique()
 section 
 filter_section = st.sidebar.selectbox("Section", (section))
 
 # df_1 = df[df['Section']=='34B: LD C&W']
 # df_1
 
-# for i in section:
-    
+for i in section:
+    print(i)
 #     st.dataframe(df[df['Section']==i])
 
     
