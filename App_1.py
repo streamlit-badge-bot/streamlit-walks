@@ -37,13 +37,15 @@ def load_data():
 
 df = load_data()
 
+section = df['Section'].values
+
 # --------------------------------
 # Sidebar
 # --------------------------------
 # st.sidebar.header("Filter")
 add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
+    "Section",
+    (section)
 )
 
 # --------------------------------
