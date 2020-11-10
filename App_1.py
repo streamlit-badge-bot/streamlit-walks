@@ -48,19 +48,18 @@ filter_section = st.sidebar.selectbox(
     (section)
 )
 
-df_1 = df[df['Section']=='34B: LD C&W']
-df_1
+# df_1 = df[df['Section']=='34B: LD C&W']
+# df_1
 
-# if filter_section == '34B: LD C&W':
-#     st.write(df.dataframe("injured_pedestrians >= 1")[["on street name", "injured_pedestrians"]].sort_values(
-#         by=['injured_pedestrians'], ascending=False).dropna(how="any")[:7])
+if filter_section == '34B: LD C&W':
+    st.dataframe(df[df['Section']=='filter_section'])
 
 
 # --------------------------------
 # Table
 # --------------------------------
-cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(df.style.background_gradient(cmap=cm))
+# cm = sns.light_palette("seagreen", as_cmap=True)
+# st.dataframe(df.style.background_gradient(cmap=cm))
 
 # --------------------------------
 # View on a map
