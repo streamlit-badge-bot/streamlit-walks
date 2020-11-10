@@ -43,8 +43,7 @@ df = load_data()
 # st.sidebar.header("Filter")
 option = st.sidebar.selectbox(
     'Which number do you like best?',
-     df['Height (m)'])
-
+    df['Height (m)'])
 'You selected:', option
 
 # --------------------------------
