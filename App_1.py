@@ -12,7 +12,7 @@ from OSGridConverter import grid2latlong
 # --------------------------------
 # Title
 # --------------------------------
-st.title("<h1 style='text-align: center; color: black;'>Wainwrights</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Wainwrights</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'>Dataset of Vehicle Collisions</h1>", unsafe_allow_html=True)
 st.markdown('<style>h2{color: blue; text-align:center;}</style>', unsafe_allow_html=True)
 
