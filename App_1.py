@@ -45,6 +45,7 @@ st.sidebar.title("Filter")
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Section", (section))
+filter_section
 
 fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])],
                         lat = "Latitude",
