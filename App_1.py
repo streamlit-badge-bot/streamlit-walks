@@ -76,7 +76,7 @@ minim = np.min(df['Height (m)'])
 minim.dtype
 
 maxim = np.max(df['Height (m)'])
-maxim
+maxim.dtype
 
 # Slider
 values = st.slider('Select a height (m)', 290, 978, (500, 700))
