@@ -54,7 +54,7 @@ st.markdown("Lets compare the heights on an area chart.")
 
 # st.map(df)
 
-midpoint = (np.average(lat_lon['lat']), np.average(lat_lon['lon']))
+midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
@@ -67,8 +67,8 @@ st.pydeck_chart(pdk.Deck(
     layers=
     pdk.Layer(
         'HexagonLayer',
-        data = lat_lon,
-        get_position = '[lon, lat]',
+        data = df,
+        get_position = '[Longitude, Latitude]',
         radius = 200,
         elevation_scale = 40,
         elevation_range = [0, 214],
