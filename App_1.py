@@ -42,7 +42,8 @@ df = load_data()
 # --------------------------------
 st.sidebar.header("Filter")
 
-section = df['Section'].unique().tolist()
+section = df['Section'].unique()
+section.append({'All': 4})
 section 
 filter_section = st.sidebar.selectbox("Section", (section))
 
