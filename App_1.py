@@ -52,18 +52,18 @@ midpoint = (np.average(lat_lon['Latitude']), np.average(lat_lon['Longitude']))
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
     initial_view_state=pdk.ViewState(
-        latitude=midpoint[0],
-        longitude=midpoint[1],
-        zoom=11,
-        pitch=50,
+        latitude = midpoint[0],
+        longitude = midpoint[1],
+        zoom = 11,
+        pitch = 50,
     ),
     layers=[
         pdk.Layer(
             'HexagonLayer',
-            data=lat_lon,
-            get_position='[Longitude, Latitude]',
-            radius=200,
-            elevation_scale=4,
+            data = lat_lon,
+            get_position = '[Longitude, Latitude]',
+            radius = 200,
+            elevation_scale = 40,
             elevation_range=[0, 1000],
             pickable=True,
             extruded=True,
