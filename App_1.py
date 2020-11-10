@@ -40,10 +40,9 @@ df = load_data()
 # --------------------------------
 # Sidebar
 # --------------------------------
-st.sidebar.header("Filter")
+st.sidebar.title("Filter")
 
 section = df['Section'].unique()
-section 
 filter_section = st.sidebar.selectbox("Section", (section))
 
 for i in section:
