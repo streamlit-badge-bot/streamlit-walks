@@ -22,16 +22,6 @@ st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright
 st.write("Here's a table of the Wainwrights, ordered by height:")
 
 # --------------------------------
-# Sidebar
-# --------------------------------
-# st.sidebar.header("Filter")
-option = st.sidebar.selectbox(
-    'Which number do you like best?',
-     df['Height (m)'])
-
-'You selected:', option
-
-# --------------------------------
 # Import Data
 # --------------------------------
 url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
@@ -46,6 +36,16 @@ def load_data():
     return df
 
 df = load_data()
+
+# --------------------------------
+# Sidebar
+# --------------------------------
+# st.sidebar.header("Filter")
+option = st.sidebar.selectbox(
+    'Which number do you like best?',
+     df['Height (m)'])
+
+'You selected:', option
 
 # --------------------------------
 # Table
