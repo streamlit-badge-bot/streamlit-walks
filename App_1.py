@@ -76,17 +76,8 @@ st.header("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
-
-genre = st.radio(
-    "What's your favorite movie genre",
-    ('Comedy', 'Drama', 'Documentary'))
-
-if genre == 'Comedy':
-    st.write('You selected comedy.')
-else:
-    st.write("You didn't select comedy.")
     
 
-agree = st.checkbox('I agree')
-if agree:
-    st.write('Great!')
+# agree = st.checkbox('I agree')
+# if agree:
+#     st.write('Great!')
