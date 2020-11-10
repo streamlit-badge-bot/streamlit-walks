@@ -53,6 +53,10 @@ lat_lon = pd.DataFrame(df)
 lat_lon = lat_lon.drop(columns = ['Name', 'Section', 'Height (m)'])
 lat_lon
 
+df_1 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
+df_1
+
+
 midpoint = (np.average(lat_lon['Latitude']), np.average(lat_lon['Longitude']))
 
 st.pydeck_chart(pdk.Deck(
