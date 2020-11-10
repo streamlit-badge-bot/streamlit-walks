@@ -85,3 +85,8 @@ if genre == 'Comedy':
     st.write('You selected comedy.')
 else:
     st.write("You didn't select comedy.")
+    
+
+agree = st.checkbox('I agree')
+if agree:
+    st.write('Great!')
