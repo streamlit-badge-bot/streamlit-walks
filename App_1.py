@@ -39,11 +39,13 @@ df = load_data()
 # --------------------------------
 # Sidebar
 # --------------------------------
-# st.sidebar.title("Filter")
+st.sidebar.title("Filter")
 
 # # Filter by Section
-# section = df['Section'].unique()
-# filter_section = st.sidebar.selectbox("Section", (section))
+section = df['Section'].unique()
+filter_section = st.sidebar.selectbox("Section", (section))
+
+heights = st.sidebar.slider('Select a height (m)', 270, 970, (270, 970))
 
 # for i in section:
 #     if filter_section == i:
@@ -69,11 +71,11 @@ df = load_data()
 # filter_section = st.sidebar.selectbox("Section", (section))
 
 # Filter by Section
-section = df['Section'].unique()
-filter_section = st.selectbox("Section", (section))
+# section = df['Section'].unique()
+# filter_section = st.selectbox("Section", (section))
 
 # Slider
-heights = st.slider('Select a height (m)', 270, 970, (270, 970))
+# heights = st.slider('Select a height (m)', 270, 970, (270, 970))
 # st.write('Values:', values)
 
 # --------------------------------
