@@ -18,7 +18,7 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # Title
 # --------------------------------
 # st.title("App to select your next Wainwright")
-st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
+st.header("The Wainwrights are 214 Lake District peaks, mapped out by Alfred Wainwright.")
 
 # --------------------------------
 # Import Data
@@ -41,11 +41,14 @@ df = load_data()
 # --------------------------------
 st.sidebar.title("Filter")
 
-# # Filter by Section
+# Height filter
+heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
+# Section filter
 section = df['Section'].unique()
+section = section + ""
 filter_section = st.sidebar.selectbox("Section", (section))
 
-heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
+
 
 # for i in section:
 #     if filter_section == i:
