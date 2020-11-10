@@ -47,7 +47,7 @@ section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Section", (section))
 filter_section
 
-fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])],
+fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section),
                         lat = "Latitude",
                         lon = "Longitude",
                         hover_name = "Name",
