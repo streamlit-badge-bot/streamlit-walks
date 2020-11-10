@@ -43,12 +43,8 @@ st.sidebar.title("Filter")
 
 # Height filter
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
-heights 
 
-df_1 = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])]
-df_1
-
-fig = px.scatter_mapbox(df,
+fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])],
                         lat = "Latitude",
                         lon = "Longitude",
                         hover_name = "Name",
