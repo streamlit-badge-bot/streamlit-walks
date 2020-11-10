@@ -57,9 +57,13 @@ fig = px.scatter_mapbox(df,
                         lon = "Longitude",
                         hover_name = "Name",
                         hover_data = ["Height (m)"],
-                        color_discrete_sequence = ["green"],
+#                         color_discrete_sequence = ["green"],
                         zoom = 9,
-                        height = 300)
+                        height = 300,
+                        color = "Height (m)",
+                        size = "car_hours",
+                        color_continuous_scale = px.colors.cyclical.IceFire,
+                        size_max = 15)
 fig.update_layout(mapbox_style = "open-street-map")
 fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
