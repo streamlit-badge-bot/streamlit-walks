@@ -19,7 +19,7 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 # st.title("App to select your next Wainwright")
 st.title("The Wainwrights are 214 Lake District peaks.")
-st.header("(not a Lancashire beer)")
+st.subheader("(not a Lancashire beer)")
 
 # --------------------------------
 # Import Data
@@ -52,7 +52,7 @@ filter_section = st.sidebar.selectbox("Section", (section))
 # --------------------------------
 # View on a map
 # --------------------------------
-st.subheader("View and filter on a map:")
+st.header("View and filter on a map:")
 st.write("The size of the dot represents the height of the Wainwright (the larger the taller). The darker dots also represent taller Wainwrights.")
 
 fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
@@ -74,7 +74,7 @@ st.plotly_chart(fig, use_container_width = True)
 # --------------------------------
 # Table
 # --------------------------------
-st.subheader("View and filter table:")
+st.header("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
