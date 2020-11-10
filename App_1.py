@@ -77,3 +77,16 @@ st.pydeck_chart(pdk.Deck(
         get_color = '[200, 30, 0, 160]',
     ),
 ))
+
+fig = px.scatter_mapbox(df,
+                        lat="Latitude",
+                        lon="Longitude",
+                        hover_name="Name",
+                        hover_data="Height (m)",
+                        color_discrete_sequence=["fuchsia"],
+                        zoom=3,
+                        height=300)
+fig.update_layout(mapbox_style="open-street-map")
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+
+st.plotly_chart(fig, use_container_width=True)
