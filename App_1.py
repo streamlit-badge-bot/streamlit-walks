@@ -73,7 +73,7 @@ section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
 # Slider
-values = st.slider('Select a height (m)', np.min(df['Height (m)']), np.max(df['Height (m)']), (np.percentile(df.df['Height (m)'], 25), np.percentile(df.df['Height (m)'], 75)))
+values = st.slider('Select a height (m)', np.min(df['Height (m)']), np.max(df['Height (m)']), (np.percentile(df['Height (m)'], 25), np.percentile(df['Height (m)'], 75)))
 st.write('Values:', values)
 
 # --------------------------------
