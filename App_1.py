@@ -19,7 +19,7 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 # st.title("App to select your next Wainwright")
 st.header("The Wainwrights are 214 Lake District peaks.")
-st.markdown("(not a beer)")
+st.title("(not a Lancashire beer)")
 
 # --------------------------------
 # Import Data
@@ -45,7 +45,7 @@ st.sidebar.title("Filter")
 # Height filter
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
 section = df['Section'].unique()
-blank_selection = null
+blank_selection = []
 section = np.concatenate((blank_selection, section))
 st.write(type(section))
 section
