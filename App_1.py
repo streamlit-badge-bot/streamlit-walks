@@ -47,25 +47,7 @@ heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), 
 section = df['Section'].unique()
 blank_selection = []
 section = np.concatenate((blank_selection, section))
-st.write(type(section))
-section
 filter_section = st.sidebar.selectbox("Section", (section))
-
-fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
-                        lat = "Latitude",
-                        lon = "Longitude",
-                        hover_name = "Name",
-                        hover_data = ["Height (m)"],
-                        zoom = 8,
-                        height = 300,
-                        color = 'Height (m)',
-                        size = 'Height (m)',
-                        color_continuous_scale = px.colors.cyclical.IceFire,
-                        size_max = 9)
-fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
-fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
-
-st.plotly_chart(fig, use_container_width = True)
 
 # # Section filter
 # section = df['Section'].unique()
@@ -108,7 +90,7 @@ st.plotly_chart(fig, use_container_width = True)
 st.title("Here are the Wainwrights plotted on a map:")
 st.write("The size of the dot represents the height of the Wainwright (the larger the taller). The darker dots also represent taller Wainwrights.")
 
-fig = px.scatter_mapbox(df,
+fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
                         lat = "Latitude",
                         lon = "Longitude",
                         hover_name = "Name",
@@ -130,4 +112,4 @@ st.plotly_chart(fig, use_container_width = True)
 st.write("Here's a table of the Wainwrights, ordered by height:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(df.style.background_gradient(cmap=cm))
+st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
