@@ -79,7 +79,7 @@ maxim = np.max(df['Height (m)'])
 maxim
 
 # Slider
-values = st.slider('Select a height (m)', minim, maxim, (500, 700))
+values = st.slider('Select a height (m)', 290, 978, (500, 700))
 st.write('Values:', values)
 
 # --------------------------------
