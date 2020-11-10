@@ -46,7 +46,7 @@ df = load_data()
 # Table
 # --------------------------------
 cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(df['Height (m)'].style.background_gradient(cmap=cm))
+st.dataframe(df.style.background_gradient(cmap=cm))
 
 # --------------------------------
 # View on a map
