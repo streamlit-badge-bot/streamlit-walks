@@ -44,6 +44,7 @@ st.markdown("Lets compare the heights on an area chart.")
 # st.map(df)
 
 lat_lon = pd.DataFrame(df)
+lat_lon = lat_lon.drop(columns = ['Name', 'Section', 'Height (m)'])
 lat_lon
 
 midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
