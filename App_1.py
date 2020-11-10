@@ -67,6 +67,7 @@ st.pydeck_chart(pdk.Deck(
             elevation_range = [0, 214],
             pickable = True,
             extruded = True,
+            auto_highlight = True,
             get_color = '[200, 30, 0, 160]',
         ),
 #         pdk.Layer(
