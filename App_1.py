@@ -57,8 +57,7 @@ fig = px.scatter_mapbox(df,
                         lon = "Longitude",
                         hover_name = "Name",
                         hover_data = ["Height (m)"],
-                        marker = dict(size = 15, symbol = 'triangle-15'),
-                        color_discrete_sequence = ["fuchsia"],
+                        color_discrete_sequence = ["green"],
                         zoom = 9,
                         height = 300)
 fig.update_layout(mapbox_style = "open-street-map")
