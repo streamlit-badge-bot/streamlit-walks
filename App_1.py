@@ -62,7 +62,7 @@ fig = px.scatter_mapbox(df,
                         color = 'Height (m)',
                         size = 'Height (m)',
                         color_continuous_scale = px.colors.cyclical.IceFire,
-                        size_max = 7)
+                        size_max = 10)
 fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
 fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
