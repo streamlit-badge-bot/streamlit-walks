@@ -50,7 +50,7 @@ st.markdown("Lets compare the heights on an area chart.")
 # st.map(df)
 
 lat_lon = pd.DataFrame(df)
-lat_lon = lat_lon.drop(columns = ['Name', 'Section', 'Height (m)'])
+lat_lon = lat_lon.drop(columns = ['Height Rank', 'Name', 'Section', 'Height (m)'])
 lat_lon
 
 df_1 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
