@@ -43,12 +43,27 @@ st.sidebar.title("Filter")
 
 # Height filter
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
-# Section filter
-section = df['Section'].unique()
-section = section + ""
-filter_section = st.sidebar.selectbox("Section", (section))
+heights 
 
+fig = px.scatter_mapbox(df,
+                        lat = "Latitude",
+                        lon = "Longitude",
+                        hover_name = "Name",
+                        hover_data = ["Height (m)"],
+                        zoom = 8,
+                        height = 300,
+                        color = 'Height (m)',
+                        size = 'Height (m)',
+                        color_continuous_scale = px.colors.cyclical.IceFire,
+                        size_max = 9)
+fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
+fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
+st.plotly_chart(fig, use_container_width = True)
+
+# # Section filter
+# section = df['Section'].unique()
+# filter_section = st.sidebar.selectbox("Section", (section))
 
 # for i in section:
 #     if filter_section == i:
