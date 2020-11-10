@@ -41,7 +41,7 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # --------------------------------
 st.markdown("Lets compare the heights on an area chart.")
 
-st.map(df)
+# st.map(df)
 
 df = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
 df
