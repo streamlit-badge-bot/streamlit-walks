@@ -72,6 +72,10 @@ df = load_data()
 section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
+# Slider
+values = st.slider('Select a range of values', 0.0, 100.0, (25.0, 75.0))
+st.write('Values:', values)
+
 # --------------------------------
 # View on a map
 # --------------------------------
