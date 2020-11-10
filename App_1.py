@@ -59,10 +59,10 @@ fig = px.scatter_mapbox(df,
                         hover_data = ["Height (m)"],
                         zoom = 9,
                         height = 300,
-#                         color = 'Height (m)',
+                        color = 'Height (m)',
                         size = 'Height (m)',
                         color_continuous_scale = px.colors.cyclical.IceFire,
-                        size_max = 13)
+                        size_max = 7)
 fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
 fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
