@@ -50,21 +50,18 @@ st.dataframe(df.style.background_gradient(cmap=cm))
 # --------------------------------
 # View on a map
 # --------------------------------
-st.markdown("Lets compare the heights on an area chart.")
-
-# st.map(df)
-
-midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
+st.title("Map")
 
 fig = px.scatter_mapbox(df,
-                        lat="Latitude",
-                        lon="Longitude",
-                        hover_name="Name",
-                        hover_data=["Height (m)"],
-                        color_discrete_sequence=["fuchsia"],
-                        zoom=8,
-                        height=300)
-fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+                        lat = "Latitude",
+                        lon = "Longitude",
+                        hover_name = "Name",
+                        hover_data = ["Height (m)"],
+                        symbol = 'triangle-15'
+                        color_discrete_sequence = ["fuchsia"],
+                        zoom = 9,
+                        height = 300)
+fig.update_layout(mapbox_style = "open-street-map")
+fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width = True)
