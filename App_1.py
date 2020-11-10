@@ -33,6 +33,12 @@ def load_data():
 
 df = load_data()
 
+# --------------------------------
+# Sidebar
+# --------------------------------
+st.sidebar.header("Filter")
+st.header("Number of Injured Person x Collision")
+
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df.style.background_gradient(cmap=cm))
 
@@ -67,7 +73,6 @@ st.pydeck_chart(pdk.Deck(
             elevation_range = [0, 214],
             pickable = True,
             extruded = True,
-            auto_highlight = True,
             get_color = '[200, 30, 0, 160]',
         ),
 #         pdk.Layer(
