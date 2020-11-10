@@ -19,7 +19,6 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 st.title("App to select your next Wainwright")
 st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
-st.write("Here's a table of the Wainwrights, ordered by height:")
 
 # --------------------------------
 # Import Data
@@ -40,37 +39,36 @@ df = load_data()
 # --------------------------------
 # Sidebar
 # --------------------------------
-st.sidebar.title("Filter")
+# st.sidebar.title("Filter")
 
-section = df['Section'].unique()
-filter_section = st.sidebar.selectbox("Section", (section))
+# # Filter by Section
+# section = df['Section'].unique()
+# filter_section = st.sidebar.selectbox("Section", (section))
 
-for i in section:
-    if filter_section == i:
-        fig = px.scatter_mapbox(df[df['Section']==i],
-                        lat = "Latitude",
-                        lon = "Longitude",
-                        hover_name = "Name",
-                        hover_data = ["Height (m)"],
-                        zoom = 9,
-                        height = 300,
-                        color = 'Height (m)',
-                        size = 'Height (m)',
-                        color_continuous_scale = px.colors.cyclical.IceFire,
-                        size_max = 9)
-        fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
-        fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
-        st.plotly_chart(fig, use_container_width = True)
+# for i in section:
+#     if filter_section == i:
+#         fig = px.scatter_mapbox(df[df['Section']==i],
+#                         lat = "Latitude",
+#                         lon = "Longitude",
+#                         hover_name = "Name",
+#                         hover_data = ["Height (m)"],
+#                         zoom = 9,
+#                         height = 300,
+#                         color = 'Height (m)',
+#                         size = 'Height (m)',
+#                         color_continuous_scale = px.colors.cyclical.IceFire,
+#                         size_max = 9)
+#         fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
+#         fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
+#         st.plotly_chart(fig, use_container_width = True)
         
-        st.dataframe(df[df['Section']==i])
+#         st.dataframe(df[df['Section']==i])
 
+# # Filter by Height
+# height = df['Height (m)'].unique()
+# filter_section = st.sidebar.selectbox("Section", (section))
+      
     
-# --------------------------------
-# Table
-# --------------------------------
-# cm = sns.light_palette("seagreen", as_cmap=True)
-# st.dataframe(df.style.background_gradient(cmap=cm))
-
 # --------------------------------
 # View on a map
 # --------------------------------
@@ -92,3 +90,11 @@ fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-te
 fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
 
 st.plotly_chart(fig, use_container_width = True)
+
+# --------------------------------
+# Table
+# --------------------------------
+st.write("Here's a table of the Wainwrights, ordered by height:")
+
+cm = sns.light_palette("seagreen", as_cmap=True)
+st.dataframe(df.style.background_gradient(cmap=cm))
