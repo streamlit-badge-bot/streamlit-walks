@@ -48,7 +48,7 @@ filter_section = st.sidebar.selectbox("Section", (section))
 # df_1 = df[df['Section']=='34B: LD C&W']
 # df_1
 
-st.dataframe(df['Section']=='filter_section')
+st.write(df[df['Section']=='filter_section'])
 
 # if filter_section == '34B: LD C&W':
 #     st.dataframe(df[df['Section']=='filter_section'])
