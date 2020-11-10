@@ -72,7 +72,7 @@ df = load_data()
 section = df['Section'].unique()
 filter_section = st.selectbox("Section", (section))
 
-float(minim = np.min(df['Height (m)']))
+minim = float64(np.min(df['Height (m)']))
 minim.dtype
 
 maxim = np.max(df['Height (m)'])
