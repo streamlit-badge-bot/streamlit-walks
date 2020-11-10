@@ -17,15 +17,12 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # Title
 # --------------------------------
 
-st.title("Wainwrights: Which one should I climb?")
 st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
-st.markdown("The purpose of this app is to narrow down the Wainwrights to aid in your next fell climb in the Lake District.")
+st.title("Which one should I climb?")
 
 # --------------------------------
 # Import Data
 # --------------------------------
-st.header("The darker the shade of green, the taller the fell is.")
-
 url = "https://en.wikipedia.org/wiki/List_of_Wainwrights"
 
 @st.cache
