@@ -45,7 +45,9 @@ st.sidebar.title("Filter")
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Section", (section))
 
-heights = st.sidebar.slider('Select a height (m)', 270, 970, (270, 970))
+minValue = df['Height (m)'].min()
+
+heights = st.sidebar.slider('Select a height (m)', minValue, 970, (270, 970))
 
 # for i in section:
 #     if filter_section == i:
