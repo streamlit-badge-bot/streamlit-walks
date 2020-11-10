@@ -49,45 +49,10 @@ blank_selection = []
 section = np.concatenate((blank_selection, section))
 filter_section = st.sidebar.selectbox("Section", (section))
 
-# # Section filter
-# section = df['Section'].unique()
-# filter_section = st.sidebar.selectbox("Section", (section))
-
-# for i in section:
-#     if filter_section == i:
-#         fig = px.scatter_mapbox(df[df['Section']==i],
-#                         lat = "Latitude",
-#                         lon = "Longitude",
-#                         hover_name = "Name",
-#                         hover_data = ["Height (m)"],
-#                         zoom = 9,
-#                         height = 300,
-#                         color = 'Height (m)',
-#                         size = 'Height (m)',
-#                         color_continuous_scale = px.colors.cyclical.IceFire,
-#                         size_max = 9)
-#         fig.update_layout(mapbox_style = "stamen-terrain") # open-street-map # stamen-terrain
-#         fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
-#         st.plotly_chart(fig, use_container_width = True)
-        
-#         st.dataframe(df[df['Section']==i])
-
-# # Filter by Height
-# height = df['Height (m)'].unique()
-# filter_section = st.sidebar.selectbox("Section", (section))
-
-# Filter by Section
-# section = df['Section'].unique()
-# filter_section = st.selectbox("Section", (section))
-
-# Slider
-# heights = st.slider('Select a height (m)', 270, 970, (270, 970))
-# st.write('Values:', values)
-
 # --------------------------------
 # View on a map
 # --------------------------------
-st.title("Here are the Wainwrights plotted on a map:")
+st.title("View and filter on a map:")
 st.write("The size of the dot represents the height of the Wainwright (the larger the taller). The darker dots also represent taller Wainwrights.")
 
 fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
@@ -109,7 +74,7 @@ st.plotly_chart(fig, use_container_width = True)
 # --------------------------------
 # Table
 # --------------------------------
-st.write("Here's a table of the Wainwrights, ordered by height:")
+st.write("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
