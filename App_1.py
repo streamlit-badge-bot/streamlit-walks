@@ -43,10 +43,7 @@ st.markdown("Lets compare the heights on an area chart.")
 
 # st.map(df)
 
-df = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
-df
-
-midpoint = (np.average(df["Latitude"]), np.average(df["Longitude"]))
+midpoint = (np.average(df['Latitude']), np.average(df['Longitude']))
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
