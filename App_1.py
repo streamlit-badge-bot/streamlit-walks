@@ -45,13 +45,13 @@ st.sidebar.title("Filter")
 # Height filter
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
 section = df['Section'].unique()
-filter_section = st.sidebar.selectbox("Section", (section))
+filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
 # --------------------------------
 # View on a map
 # --------------------------------
 st.header("View and filter on a map:")
-st.write("The size of the dot represents the height of the Wainwright (the larger the taller). The darker dots also represent taller Wainwrights.")
+st.write("The shade size of the dot represent the height of the Wainwright.")
 
 fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
                         lat = "Latitude",
