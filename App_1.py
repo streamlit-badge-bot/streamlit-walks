@@ -43,10 +43,18 @@ section = df['Section'].unique()
 # Sidebar
 # --------------------------------
 # st.sidebar.header("Filter")
-add_selectbox = st.sidebar.selectbox(
+filter_section = st.sidebar.selectbox(
     "Section",
     (section)
 )
+
+df_1 = df[df['Section']=='34B: LD C&W']
+df_1
+
+# if filter_section == '34B: LD C&W':
+#     st.write(df.dataframe("injured_pedestrians >= 1")[["on street name", "injured_pedestrians"]].sort_values(
+#         by=['injured_pedestrians'], ascending=False).dropna(how="any")[:7])
+
 
 # --------------------------------
 # Table
