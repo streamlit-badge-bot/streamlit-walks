@@ -25,6 +25,11 @@ st.write("Here's a table of the Wainwrights, ordered by height:")
 # Sidebar
 # --------------------------------
 # st.sidebar.header("Filter")
+option = st.sidebar.selectbox(
+    'Which number do you like best?',
+     df['Height (m)'])
+
+'You selected:', option
 
 # --------------------------------
 # Import Data
