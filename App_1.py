@@ -45,7 +45,7 @@ st.sidebar.title("Filter")
 heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
 heights 
 
-df_1 = df[df['Height (m)'] >= heights[0]]
+df_1 = df[df['Height (m)'] >= heights[0] & df['Height (m)'] <= heights[1]]
 df_1
 
 fig = px.scatter_mapbox(df,
