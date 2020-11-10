@@ -17,7 +17,7 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 # Title
 # --------------------------------
-st.title("App to select your next Wainwright")
+# st.title("App to select your next Wainwright")
 st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
 
 # --------------------------------
