@@ -37,7 +37,7 @@ def load_data():
 
 df = load_data()
 
-section = df['Section'].values.unique()
+section = df['Section'].unique().values
 
 # --------------------------------
 # Sidebar
