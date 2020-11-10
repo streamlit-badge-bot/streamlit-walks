@@ -50,7 +50,8 @@ filter_section = st.sidebar.selectbox("Section", (section))
 # df_1
 
 for i in section:
-    st.dataframe(df[df['Section']==i])
+    if filter_selection == i:
+        st.dataframe(df[df['Section']==i])
 
     
 # --------------------------------
