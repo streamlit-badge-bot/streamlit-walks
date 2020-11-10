@@ -16,9 +16,9 @@ st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_
 # --------------------------------
 # Title
 # --------------------------------
-
+st.title("Geographic Data")
+st.title("Wainwrights: Which one should I climb?")
 st.header("Wainwrights are the 214 English peaks mapped out in Alfred Wainwright's Pictorial Guide to the Lakeland Fells (1955–66).")
-st.title("Which one should I climb?")
 
 # --------------------------------
 # Import Data
