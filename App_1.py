@@ -75,6 +75,10 @@ df = load_data()
 st.title("Here are the Wainwrights plotted on a map:")
 st.write("The size of the dot represents the height of the Wainwright (the larger the taller). The darker dots also represent taller Wainwrights.")
 
+# Filter by Section
+section = df['Section'].unique()
+filter_section = st.selectbox("Section", (section))
+
 fig = px.scatter_mapbox(df,
                         lat = "Latitude",
                         lon = "Longitude",
