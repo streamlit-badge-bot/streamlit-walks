@@ -41,10 +41,10 @@ df = load_data()
 # Sidebar
 # --------------------------------
 # st.sidebar.header("Filter")
-option = st.sidebar.selectbox(
-    'Which number do you like best?',
-    df['Height (m)'])
-'You selected:', option
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
 
 # --------------------------------
 # Table
