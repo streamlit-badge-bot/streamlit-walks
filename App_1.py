@@ -53,12 +53,6 @@ heights = st.sidebar.slider('Select a height (m)',
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
-
-
-for i in names:
-    if df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)]:
-        print(st.sidebar.checkbox(i))
-
 # names = df['Name'].unique()
 # names = sorted(names, reverse = False)
 
