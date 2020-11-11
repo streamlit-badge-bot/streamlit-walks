@@ -58,10 +58,15 @@ selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]
 names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 
-for i in names:
-    exclude_peaks = st.sidebar.checkbox(key = "Exclude peaks:", label = i)
-if exclude_peaks:
-    st.write('Excluded peaks')
+# for i in names:
+#     st.sidebar.checkbox(i)
+
+options = st.multiselect(
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red'])
+
+st.write('You selected:', options)
     
 # --------------------------------
 # View on a map
