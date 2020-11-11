@@ -54,9 +54,11 @@ section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
 names = df['Name'].unique()
-agree = st.sidebar.checkbox("Select a geographical area (Central and West, East, North or South", (names))
-if agree:
-    st.write('Great!')
+for i in names:
+    print(st.sidebar.checkbox(i))
+    
+# if agree:
+#     st.write('Great!')
 
 # --------------------------------
 # View on a map
