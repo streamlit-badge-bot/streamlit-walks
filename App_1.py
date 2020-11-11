@@ -58,14 +58,9 @@ selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]
 names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 
-# for i in names:
-#     st.sidebar.checkbox(i)
-
-options = st.multiselect(
+options = st.sidebar.multiselect(
     'Select Wainwrights to exclude',
     names)
-
-st.write('You selected:', options)
     
 # --------------------------------
 # View on a map
