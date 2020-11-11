@@ -53,6 +53,7 @@ heights = st.sidebar.slider('Select a height (m)',
 # Section filter
 section = df['Section'].unique()
 filter_section = st.sidebar.multiselect("Select a geographical area (Central and West, East, North or South", section)
+
 if filter_section == []:
     selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])]
 elif filter_section != []:
@@ -62,9 +63,10 @@ elif filter_section != []:
 names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 options = st.sidebar.multiselect("Select Wainwrights to exclude", names)
-if names == []:
+
+if options == []:
     selected = selected
-elif filter_section != []:
+elif options != []:
     selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Names'].isin(names))]
     
 # --------------------------------
