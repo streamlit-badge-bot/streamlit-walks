@@ -43,9 +43,19 @@ df = load_data()
 st.sidebar.title("Filter")
 
 # Height filter
-heights = st.sidebar.slider('Select a height (m)', int(df['Height (m)'].min()), int(df['Height (m)'].max()), (int(df['Height (m)'].min()), int(df['Height (m)'].max())))
+heights = st.sidebar.slider('Select a height (m)', 
+                            int(df['Height (m)'].min()), 
+                            int(df['Height (m)'].max()), 
+                            (int(df['Height (m)'].min()), 
+                             int(df['Height (m)'].max()))
+                           )
+
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
+
+agree = st.sidebar.checkbox('I agree')
+if agree:
+    st.write('Great!')
 
 # --------------------------------
 # View on a map
@@ -76,8 +86,3 @@ st.header("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
 st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
-    
-
-# agree = st.checkbox('I agree')
-# if agree:
-#     st.write('Great!')
