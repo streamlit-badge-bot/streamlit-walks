@@ -58,7 +58,10 @@ filter_section = st.sidebar.selectbox("Select a geographical area (Central and W
 
 # st.sidebar.checkbox(df['Name'].unique()[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)])
 
-st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)])
+selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)]
+selected
+
+
     
 # --------------------------------
 # View on a map
@@ -66,7 +69,7 @@ st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[
 st.header("View and filter on a map:")
 st.write("The shade size of the dot represent the height of the Wainwright.")
 
-fig = px.scatter_mapbox(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)],
+fig = px.scatter_mapbox(selected,
                         lat = "Latitude",
                         lon = "Longitude",
                         hover_name = "Name",
@@ -88,4 +91,4 @@ st.plotly_chart(fig, use_container_width = True)
 st.header("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)].style.background_gradient(cmap=cm))
+st.dataframe(selected.style.background_gradient(cmap=cm))
