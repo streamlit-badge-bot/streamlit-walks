@@ -62,9 +62,8 @@ names = sorted(names, reverse = False)
 #     st.sidebar.checkbox(i)
 
 options = st.multiselect(
-    'What are your favorite colors',
-    ['Green', 'Yellow', 'Red', 'Blue'],
-    ['Yellow', 'Red'])
+    'Select Wainwrights to exclude',
+    names)
 
 st.write('You selected:', options)
     
