@@ -59,7 +59,9 @@ names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 
 for i in names:
-    st.sidebar.checkbox(i)
+    exclude_peaks = st.sidebar.checkbox(i)
+if exclude_peaks:
+    st.write('Excluded peaks')
     
 # --------------------------------
 # View on a map
