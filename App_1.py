@@ -64,10 +64,12 @@ names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 options = st.sidebar.multiselect("Select Wainwrights to exclude", names)
 
-if options == []:
-    selected_1 = selected
-elif options != []:
-    selected_1 = selected & df.loc[~df['Names'].isin(options)]
+df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Name'].isin(options))]
+
+# if options == []:
+#     selected_1 = selected
+# elif options != []:
+#     selected_1 = selected & df[~df['Names'].isin(options)]
     
 # --------------------------------
 # View on a map
