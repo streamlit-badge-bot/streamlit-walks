@@ -55,7 +55,7 @@ section = df['Section'].unique()
 filter_section = st.sidebar.multiselect("Select a geographical area (Central and West, East, North or South", section)
 st.write(filter_section)
 
-df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin('34C: LD E', '34A: LD N'))]
+df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(['34C: LD E', '34A: LD N']))]
 
 # if filter_section == []:
 #     selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])]
