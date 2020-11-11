@@ -53,11 +53,11 @@ heights = st.sidebar.slider('Select a height (m)',
 # section = df['Section'].unique()
 # filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
-if st.checkbox('Show dataframe'):
+if st.sidebar.checkbox('Show dataframe'):
     chart_data = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
-    st.line_chart(chart_data)
+    st.sidebar.line_chart(chart_data)
 
 names = df['Name'].unique()
 names = sorted(names, reverse=False)
