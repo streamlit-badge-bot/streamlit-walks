@@ -53,6 +53,7 @@ heights = st.sidebar.slider('Select a height (m)',
 section = df['Section'].unique()
 # filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 filter_section = st.sidebar.multiselect("Select a geographical area (Central and West, East, North or South", section)
+st.write(filter_section)
 
 selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])]
 
