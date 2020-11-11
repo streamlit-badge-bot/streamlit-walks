@@ -51,7 +51,7 @@ heights = st.sidebar.slider('Select a height (m)',
                            )
 
 # Section filter
-section = df['Section'].unique()
+section = df['Section / Region'].unique()
 filter_section = st.sidebar.multiselect("Select a geographical area (Central and West, East, North or South", section)
 
 if filter_section == []:
@@ -67,7 +67,7 @@ options = st.sidebar.multiselect("Select Wainwrights to exclude", names)
 if options == []:
     selected = selected
 elif options != []:
-    selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Name'].isin(options))]
+    selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section / Region'].isin(filter_section)) & (~df['Name'].isin(options))]
     
 # --------------------------------
 # View on a map
