@@ -50,8 +50,8 @@ heights = st.sidebar.slider('Select a height (m)',
                              int(df['Height (m)'].max()))
                            )
 
-# section = df['Section'].unique()
-# filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
+section = df['Section'].unique()
+filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
 names = df['Name'].unique()
 names = sorted(names, reverse=False)
@@ -60,17 +60,7 @@ for i in names:
     if df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)]:
         print(st.sidebar.checkbox(i))
 
-# if st.sidebar.checkbox('Show dataframe'):
-#     chart_data = pd.DataFrame(
-#         np.random.randn(20, 3),
-#         columns=['a', 'b', 'c'])
-#     st.sidebar.line_chart(chart_data)
-    
- 
-    
-# if agree:
-#     st.write('Great!')
-
+        
 # --------------------------------
 # View on a map
 # --------------------------------
