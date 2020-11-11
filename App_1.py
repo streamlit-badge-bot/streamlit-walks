@@ -59,7 +59,7 @@ names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 
 for i in names:
-    exclude_peaks = st.sidebar.checkbox("Exclude peaks:", i)
+    exclude_peaks = st.sidebar.checkbox(key = "Exclude peaks:", label = i)
 if exclude_peaks:
     st.write('Excluded peaks')
     
