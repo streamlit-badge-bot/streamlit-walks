@@ -32,7 +32,7 @@ def load_data():
     df = html[1]
     df['Latitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).latitude)
     df['Longitude'] = df['OS Grid Reference'].apply(lambda x: grid2latlong(x).longitude)
-    df = df.drop(columns = ['Prom. Rank', 'Munro Since', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference', 'Classification(§\DoBIH codes)'])
+    df = df.drop(columns = ['Prom. Rank', 'Munro Since', 'Prom. (m)', 'Height (ft)', 'Prom. (ft)', 'Topo Map', 'OS Grid Reference'])
     return df
 
 df = load_data()
