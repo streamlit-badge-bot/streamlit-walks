@@ -54,7 +54,7 @@ section = df['Section'].unique()
 # filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 filter_section = st.sidebar.multiselect("Select a geographical area (Central and West, East, North or South", section)
 
-selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'] == filter_section)]
+selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1])]
 
 names = selected['Name'].unique()
 names = sorted(names, reverse = False)
