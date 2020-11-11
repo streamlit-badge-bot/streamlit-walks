@@ -67,7 +67,7 @@ options = st.sidebar.multiselect("Select Wainwrights to exclude", names)
 if options == []:
     selected = selected
 elif options != []:
-    selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Names'].isin(names))]
+    selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Names'].isin(options))]
     
 # --------------------------------
 # View on a map
