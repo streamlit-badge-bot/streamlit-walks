@@ -53,7 +53,7 @@ heights = st.sidebar.slider('Select a height (m)',
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
-names = df['Name'].unique()
+names = df['Name'].unique().sort(ascending = True)
 for i in names:
     print(st.sidebar.checkbox(i))
     
