@@ -65,9 +65,9 @@ names = sorted(names, reverse = False)
 options = st.sidebar.multiselect("Select Wainwrights to exclude", names)
 
 if options == []:
-    selected_1 = selected
+    selected = selected
 elif options != []:
-    selected_1 = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Name'].isin(options))]
+    selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]) & (df['Section'].isin(filter_section)) & (~df['Name'].isin(options))]
     
 # --------------------------------
 # View on a map
@@ -75,7 +75,7 @@ elif options != []:
 st.header("View and filter on a map:")
 st.write("The shade size of the dot represent the height of the Wainwright.")
 
-fig = px.scatter_mapbox(selected_1,
+fig = px.scatter_mapbox(selected,
                         lat = "Latitude",
                         lon = "Longitude",
                         hover_name = "Name",
@@ -97,4 +97,4 @@ st.plotly_chart(fig, use_container_width = True)
 st.header("View and filter table:")
 
 cm = sns.light_palette("seagreen", as_cmap=True)
-st.dataframe(selected_1.style.background_gradient(cmap=cm))
+st.dataframe(selected.style.background_gradient(cmap=cm))
