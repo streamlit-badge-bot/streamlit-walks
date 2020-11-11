@@ -53,7 +53,8 @@ heights = st.sidebar.slider('Select a height (m)',
 section = df['Section'].unique()
 filter_section = st.sidebar.selectbox("Select a geographical area (Central and West, East, North or South", (section))
 
-agree = st.sidebar.checkbox('I agree')
+names = df['Name'].unique()
+agree = st.sidebar.checkbox(names)
 if agree:
     st.write('Great!')
 
