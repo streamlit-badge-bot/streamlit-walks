@@ -13,7 +13,7 @@ import plotly.express as px
 st.markdown('<style>h1{color: green; text-align:center;}</style>', unsafe_allow_html=True)
 st.markdown('<style>h2{color: black; text-align:center;}</style>', unsafe_allow_html=True)
 st.markdown('<style>h3{color: black; text-align:center;}</style>', unsafe_allow_html=True)
-st.sidebar('<style>{color: green; text-align:center;}</style>', unsafe_allow_html=True)
+st.markdown('<style>sidebar{color: green;}</style>', unsafe_allow_html=True)
 
 # --------------------------------
 # Title
