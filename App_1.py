@@ -58,7 +58,8 @@ selected = df[(df['Height (m)'] >= heights[0]) & (df['Height (m)'] <= heights[1]
 names = selected['Name'].unique()
 names = sorted(names, reverse = False)
 
-st.sidebar.checkbox(names)
+for i in names:
+    st.sidebar.checkbox(i)
     
 # --------------------------------
 # View on a map
