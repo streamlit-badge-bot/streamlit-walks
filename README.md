@@ -1,1 +1,1 @@
-# streamlit-wainwright
+# streamlit-wainwright [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/pippinstall/streamlit-walks/main/lake_district.py)
